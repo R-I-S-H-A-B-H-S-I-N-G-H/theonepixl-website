@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" style="scroll-padding-top: 6rem;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheOnePixl — Software that ships.</title>
+    <meta name="description" content="We build fast, reliable software solutions. No fluff. Just code that works.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black: #111;
+            --white: #fefefe;
+            --off-white: #f7f7f5;
+            --gray-200: #e8e8e4;
+            --gray-400: #a8a8a3;
+            --gray-500: #78786f;
+            --gray-600: #555550;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+
+        .serif {
+            font-family: 'Fraunces', Georgia, serif;
+            font-optical-sizing: auto;
+        }
+
+        ::selection { background: #e0ddd4; }
+
+        /* ---------- NAV ---------- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%; z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(254,254,254,0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .nav-logo {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            letter-spacing: -0.02em;
+            color: var(--black);
+            text-decoration: none;
+        }
+        .nav-right {
+            display: flex; gap: 2.5rem; align-items: center;
+        }
+        .nav-right a {
+            font-size: 0.82rem; font-weight: 500;
+            color: var(--gray-500); text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-right a:hover { color: var(--black); }
+        .nav-cta {
+            color: var(--white) !important;
+            background: var(--black);
+            padding: 0.5rem 1.3rem;
+            border-radius: 0;
+        }
+        .nav-cta:hover { opacity: 0.85; }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 6rem;
+        }
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(3.2rem, 8.5vw, 7.5rem);
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            max-width: 15ch;
+            margin-bottom: 2.5rem;
+        }
+        .hero h1 em {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+        .hero-sub {
+            font-size: clamp(1rem, 1.4vw, 1.15rem);
+            color: var(--gray-500);
+            max-width: 36ch;
+            font-weight: 400;
+            line-height: 1.75;
+            margin-bottom: 3.5rem;
+        }
+        .hero-buttons {
+            display: flex; gap: 0.75rem; flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn-dark {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.85rem 1.8rem;
+            background: var(--black); color: var(--white);
+            border-radius: 0;
+            font-size: 0.9rem; font-weight: 500;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .btn-dark:hover { opacity: 0.8; }
+        .btn-light {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.85rem 1.8rem;
+            background: transparent; color: var(--black);
+            border: 1px solid var(--gray-200);
+            border-radius: 0;
+            font-size: 0.9rem; font-weight: 500;
+            text-decoration: none;
+            transition: border-color 0.2s;
+        }
+        .btn-light:hover { border-color: var(--black); }
+
+        /* ---------- STRIP ---------- */
+        .strip {
+            border-top: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1.2rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .strip-track {
+            display: flex; gap: 2.5rem;
+            animation: ticker 25s linear infinite;
+        }
+        .strip-item {
+            font-size: 0.7rem; font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            flex-shrink: 0;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ---------- MANIFESTO ---------- */
+        .manifesto {
+            padding: 10rem 2rem 8rem;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+        .manifesto p {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+            font-weight: 300;
+            line-height: 1.45;
+            letter-spacing: -0.015em;
+        }
+        .manifesto p em { font-style: italic; font-weight: 400; }
+        .manifesto p .muted { color: var(--gray-400); }
+
+        /* ---------- PILLARS ---------- */
+        .pillars {
+            padding: 0 2rem 10rem;
+        }
+        .pillars-grid {
+            max-width: 1060px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--gray-200);
+            border: 1px solid var(--gray-200);
+            border-radius: 0;
+            overflow: hidden;
+        }
+        .pillar {
+            background: var(--white);
+            padding: 3rem 2.5rem;
+            transition: background 0.25s;
+        }
+        .pillar:hover { background: var(--off-white); }
+        .pillar-num {
+            font-size: 0.65rem; font-weight: 600;
+            letter-spacing: 0.25em; color: var(--gray-400);
+            margin-bottom: 2rem;
+        }
+        .pillar h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.65rem; font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+        .pillar p {
+            font-size: 0.88rem; color: var(--gray-500);
+            line-height: 1.7; font-weight: 400;
+        }
+
+        /* ---------- PRICING ---------- */
+        .pricing {
+            padding: 10rem 2rem;
+            background: var(--off-white);
+        }
+        .pricing-inner { max-width: 1060px; margin: 0 auto; }
+        .pricing-label {
+            font-size: 0.65rem; font-weight: 600;
+            letter-spacing: 0.25em; text-transform: uppercase;
+            color: var(--gray-400); margin-bottom: 1.5rem;
+        }
+        .pricing-heading {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
+            font-weight: 300;
+            letter-spacing: -0.025em;
+            line-height: 1.15;
+            margin-bottom: 5rem;
+            max-width: 18ch;
+        }
+        .pricing-heading em { font-style: italic; font-weight: 400; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .price-card {
+            background: var(--white);
+            border-radius: 0;
+            padding: 2.5rem;
+            display: flex; flex-direction: column;
+            justify-content: space-between;
+            min-height: 360px;
+            border: 1px solid var(--gray-200);
+            transition: box-shadow 0.3s;
+        }
+        .price-card:hover {
+            box-shadow: 0 16px 48px -12px rgba(0,0,0,0.06);
+        }
+        .price-tag {
+            display: inline-block;
+            font-size: 0.65rem; font-weight: 600;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--gray-500);
+            border: 1px solid var(--gray-200);
+            padding: 0.25rem 0.7rem;
+            border-radius: 0;
+            margin-bottom: 1.8rem;
+        }
+        .price-name {
+            font-family: 'Fraunces', serif;
+            font-size: 1.7rem; font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .price-desc {
+            font-size: 0.88rem; color: var(--gray-500);
+            line-height: 1.7; font-weight: 400;
+            margin-bottom: 2rem;
+        }
+        .price-bottom {
+            display: flex; justify-content: space-between;
+            align-items: flex-end;
+        }
+        .price-amount {
+            font-size: 2rem; font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+        .price-unit {
+            display: block;
+            font-size: 0.72rem; color: var(--gray-500);
+            font-weight: 400; margin-top: 2px;
+        }
+        .price-link {
+            font-size: 0.82rem; font-weight: 500;
+            color: var(--black); text-decoration: none;
+            border-bottom: 1px solid var(--black);
+            padding-bottom: 2px;
+            transition: opacity 0.2s;
+        }
+        .price-link:hover { opacity: 0.5; }
+
+        /* ---------- CONTACT ---------- */
+        .contact {
+            padding: 10rem 2rem;
+            text-align: center;
+        }
+        .contact h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 300;
+            letter-spacing: -0.035em;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+        .contact h2 em { font-style: italic; font-weight: 400; }
+        .contact-email {
+            display: inline-block;
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            color: var(--gray-500);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gray-400);
+            padding-bottom: 3px;
+            transition: color 0.2s, border-color 0.2s;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+        .contact-email:hover { color: var(--black); border-color: var(--black); }
+        .contact-phone {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            text-decoration: none;
+            margin-bottom: 4rem;
+        }
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .contact-col-label {
+            font-size: 0.6rem; font-weight: 600;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--gray-400); margin-bottom: 0.4rem;
+        }
+        .contact-col-value {
+            font-size: 0.85rem; color: var(--gray-600);
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            border-top: 1px solid var(--gray-200);
+            padding: 2.5rem 3rem;
+        }
+        .footer-inner {
+            max-width: 1060px; margin: 0 auto;
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+        .footer-copy {
+            font-size: 0.72rem; color: var(--gray-400);
+        }
+        .footer-links {
+            display: flex; gap: 2rem;
+        }
+        .footer-links a {
+            font-size: 0.72rem; color: var(--gray-400);
+            text-decoration: none; transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--black); }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-right { display: none; }
+            .hero { padding: 7rem 1.5rem 4rem; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .manifesto { padding: 6rem 1.5rem; }
+            .pricing { padding: 6rem 1.5rem; }
+            .contact { padding: 6rem 1.5rem; }
+            .contact-details { gap: 2rem; }
+        }
+
+        /* ---------- REVEAL ---------- */
+        .reveal {
+            opacity: 0; transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+                        transform 0.7s cubic-bezier(0.16,1,0.3,1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-logo">theonepixl</a>
+        <div class="nav-right">
+            <a href="#work">What we do</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="nav-cta">Let's talk</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1 class="reveal">Software that <em>actually</em> ships.</h1>
+            <p class="hero-sub reveal">We build fast, reliable systems for businesses that don't have time for bloat. Idea to production — quickly.</p>
+            <div class="hero-buttons reveal">
+                <a href="#solutions" class="btn-dark">
+                    See our work
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </a>
+                <a href="#contact" class="btn-light">Get in touch</a>
+            </div>
+        </section>
+
+        <div class="strip" aria-hidden="true">
+            <div class="strip-track">
+                <span class="strip-item">Backend Systems</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">API Design</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">Cloud Infra</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">Rapid Prototyping</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">CI / CD</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">Full-Stack Apps</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">Security</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">Performance</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">Backend Systems</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">API Design</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">Cloud Infra</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">Rapid Prototyping</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">CI / CD</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">Full-Stack Apps</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">Security</span>
+                <span class="strip-item">·</span>
+                <span class="strip-item">Performance</span>
+                <span class="strip-item">·</span>
+            </div>
+        </div>
+
+        <section id="work" class="manifesto">
+            <p class="reveal">
+                We're a small, <em>opinionated</em> software studio. <span class="muted">We don't do committees, decks, or six-month timelines.</span> We write code, ship fast, and build things that <em>actually work.</em>
+            </p>
+        </section>
+
+        <section class="pillars">
+            <div class="pillars-grid">
+                <div class="pillar reveal">
+                    <div class="pillar-num">01</div>
+                    <h3>Architecture</h3>
+                    <p>Scalable systems designed for zero-downtime and high concurrency from day one.</p>
+                </div>
+                <div class="pillar reveal">
+                    <div class="pillar-num">02</div>
+                    <h3>Execution</h3>
+                    <p>Rapid prototyping and CI/CD pipelines. We ship production-ready code, fast.</p>
+                </div>
+                <div class="pillar reveal">
+                    <div class="pillar-num">03</div>
+                    <h3>Integrity</h3>
+                    <p>Automated testing, deep-stack security, and code you can actually maintain.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="solutions" class="pricing">
+            <div class="pricing-inner">
+                <div class="pricing-label reveal">Pricing</div>
+                <h2 class="pricing-heading reveal">Straightforward work, <em>straightforward</em> pricing.</h2>
+
+                <div class="pricing-grid">
+                    <div class="price-card reveal">
+                        <div>
+                            <span class="price-tag">Sprint</span>
+                            <h3 class="price-name">Rapid Development</h3>
+                            <p class="price-desc">From concept to production-ready software in 4 weeks. Ideal for startups validating ideas or teams shipping critical features.</p>
+                        </div>
+                        <div class="price-bottom">
+                            <div>
+                                <div class="price-amount">₹49,999</div>
+                                <span class="price-unit">base / project</span>
+                            </div>
+                            <a href="mailto:contact@theonepixl.com?subject=Rapid Development Sprint" class="price-link">Inquire →</a>
+                        </div>
+                    </div>
+
+                    <div class="price-card reveal">
+                        <div>
+                            <span class="price-tag">Enterprise</span>
+                            <h3 class="price-name">Infrastructure Audit</h3>
+                            <p class="price-desc">Backend architecture review, API optimization, and cloud hardening for companies that need to scale without breaking.</p>
+                        </div>
+                        <div class="price-bottom">
+                            <div>
+                                <div class="price-amount">₹1,25,000</div>
+                                <span class="price-unit">base / audit</span>
+                            </div>
+                            <a href="mailto:contact@theonepixl.com?subject=Enterprise Infrastructure Audit" class="price-link">Inquire →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2 class="reveal">Let's build<br><em>something real.</em></h2>
+            <a href="mailto:contact@theonepixl.com" class="contact-email reveal">contact@theonepixl.com</a>
+            <a href="tel:+91XXXXXXXXXX" class="contact-phone reveal">+91 XXXXXXXXXX</a>
+
+            <div class="contact-details reveal">
+                <div>
+                    <div class="contact-col-label">Company</div>
+                    <div class="contact-col-value">TheOnePixl Solutions</div>
+                </div>
+                <div>
+                    <div class="contact-col-label">Address</div>
+                    <div class="contact-col-value">Noida, Uttar Pradesh, India</div>
+                </div>
+                <div>
+                    <div class="contact-col-label">Registration</div>
+                    <div class="contact-col-value">MSME Registered Enterprise</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-copy">© 2026 TheOnePixl Solutions. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="refund.html">Refund & Cancellation</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>
