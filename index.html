@@ -358,6 +358,801 @@
         }
         .footer-links a:hover { color: var(--black); }
 
+        /* ---------- HERO META ---------- */
+        .hero-meta {
+            margin-top: 4.5rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .meta-item {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+            border: 1px solid var(--gray-200);
+            padding: 0.6rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: border-color 0.3s, background 0.3s, transform 0.2s;
+        }
+        .meta-item:hover {
+            border-color: var(--black);
+            background: var(--off-white);
+            transform: translateY(-1px);
+        }
+        .meta-icon { font-size: 0.9rem; }
+        .meta-label { color: var(--gray-500); font-weight: 400; margin-right: 0.2rem; }
+        .meta-val { color: var(--black); font-weight: 600; }
+
+        /* ---------- REVIEWS MARQUEE ---------- */
+        .reviews-container {
+            max-width: 100%;
+            overflow: hidden;
+            text-align: center;
+        }
+        .reviews-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            color: var(--gray-400);
+            display: inline-block;
+            text-transform: uppercase;
+            margin-bottom: 3.5rem;
+        }
+        .reviews-marquee {
+            display: flex;
+            gap: 2rem;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            padding: 1.5rem 0;
+            user-select: none;
+            mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+        }
+        .reviews-track {
+            display: flex;
+            gap: 2rem;
+            flex-shrink: 0;
+            animation: reviews-scroll 45s linear infinite;
+        }
+        .reviews-marquee:hover .reviews-track {
+            animation-play-state: paused;
+        }
+        .review-card-item {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 2.2rem;
+            width: min(380px, 85vw);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+        .review-card-item:hover {
+            border-color: var(--black);
+            box-shadow: 0 16px 40px -10px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+        }
+        .review-comment {
+            font-size: 0.88rem;
+            color: var(--gray-600);
+            line-height: 1.65;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        .review-author {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .author-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+        .author-title {
+            font-size: 0.72rem;
+            color: var(--gray-400);
+        }
+        @keyframes reviews-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 1rem)); }
+        }
+
+        /* ---------- CAPABILITIES ---------- */
+        .capabilities {
+            padding: 10rem 2rem;
+            border-top: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+            background: var(--white);
+        }
+        .section-inner {
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+        .section-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        .section-heading {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 300;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        .section-sub {
+            font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+            color: var(--gray-500);
+            max-width: 55ch;
+            margin-bottom: 6rem;
+            line-height: 1.75;
+        }
+        .capabilities-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8rem;
+        }
+        .capability-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .capability-item:nth-child(even) {
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .capability-item:nth-child(even) .cap-info {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        .capability-item:nth-child(even) .cap-demo {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        .cap-code {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .cap-info h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+        .cap-desc {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        .cap-body {
+            font-size: 0.88rem;
+            color: var(--gray-500);
+            line-height: 1.75;
+            margin-bottom: 2rem;
+        }
+        .cap-velocity {
+            font-family: monospace;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            border: 1px dashed var(--gray-200);
+            padding: 0.4rem 0.8rem;
+            display: inline-block;
+        }
+
+        /* ---------- LAYMAN PREVIEW CARDS ---------- */
+        .preview-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 0px;
+            box-shadow: 0 20px 48px -12px rgba(0,0,0,0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 320px;
+            width: 100%;
+            transition: box-shadow 0.3s;
+        }
+        .preview-card:hover {
+            box-shadow: 0 24px 64px -12px rgba(0,0,0,0.1);
+        }
+        .preview-header {
+            background: var(--off-white);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 0.65rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+        .preview-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .preview-dot.red { background: #ff5f56; }
+        .preview-dot.yellow { background: #ffbd2e; }
+        .preview-dot.green { background: #27c93f; }
+        .preview-address-bar {
+            font-family: monospace;
+            font-size: 0.65rem;
+            color: var(--gray-500);
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 0.1rem 0.6rem;
+            border-radius: 2px;
+            margin-left: 0.5rem;
+            flex-grow: 1;
+            text-align: left;
+        }
+        .preview-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--white);
+        }
+
+        /* Gauge Widget (Websites) */
+        .gauge-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+        .speed-gauge {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 6px solid var(--gray-200);
+            border-top-color: #10b981;
+            border-right-color: #10b981;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .gauge-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #10b981;
+            line-height: 1;
+        }
+        .gauge-label {
+            font-size: 0.52rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--gray-500);
+            letter-spacing: 0.05em;
+            margin-top: 2px;
+        }
+        .preview-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            text-align: left;
+        }
+        .check-item {
+            font-size: 0.78rem;
+            color: var(--gray-600);
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+        .check-item.passed span::before {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        /* SaaS Telemetry Widget */
+        .saas-header-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            text-align: left;
+        }
+        .metric-block {
+            background: var(--off-white);
+            border: 1px solid var(--gray-200);
+            padding: 0.6rem 0.8rem;
+        }
+        .metric-title {
+            display: block;
+            font-size: 0.55rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            letter-spacing: 0.05em;
+            margin-bottom: 3px;
+        }
+        .metric-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--black);
+        }
+        .metric-value.status-ok {
+            color: #10b981;
+            font-size: 0.85rem;
+        }
+        .metric-value em.positive {
+            font-style: normal;
+            font-size: 0.72rem;
+            color: #10b981;
+            font-weight: 500;
+            margin-left: 2px;
+        }
+        .telemetry-sparkline {
+            background: var(--off-white);
+            border: 1px solid var(--gray-200);
+            padding: 0.6rem 0.8rem;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        .sparkline-title {
+            display: block;
+            font-size: 0.55rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+        .sparkline-svg {
+            width: 100%;
+            height: auto;
+            max-height: 40px;
+        }
+        .api-speed-badge {
+            font-size: 0.72rem;
+            color: var(--gray-500);
+            text-align: left;
+        }
+
+        /* AI Sandbox Widget */
+        .chat-sandbox {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            padding: 1rem !important;
+            overflow-y: auto;
+        }
+        .chat-bubble {
+            max-width: 82%;
+            padding: 0.55rem 0.75rem;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .chat-bubble.user {
+            background: var(--off-white);
+            color: var(--black);
+            align-self: flex-end;
+            border-radius: 4px 4px 0 4px;
+        }
+        .chat-sender {
+            font-size: 0.55rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            margin-bottom: 3px;
+        }
+        .chat-bubble.assistant {
+            background: var(--black);
+            color: var(--white);
+            align-self: flex-start;
+            border-radius: 4px 4px 4px 0;
+        }
+        .chat-bubble.assistant .chat-sender {
+            color: var(--gray-500);
+        }
+
+        /* Automation Flowchart Widget */
+        .flow-chart {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 1rem 0 1.5rem;
+        }
+        .flow-step {
+            background: var(--off-white);
+            border: 1px solid var(--gray-200);
+            padding: 0.6rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 82px;
+        }
+        .step-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--black);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .step-label {
+            font-size: 0.52rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--gray-500);
+            text-align: center;
+        }
+        .flow-arrow {
+            color: var(--gray-400);
+            font-size: 1rem;
+        }
+        .automation-status {
+            font-size: 0.72rem;
+            color: var(--gray-500);
+            text-align: left;
+        }
+
+        /* Media Player Mockup */
+        .video-player-mock {
+            background: var(--black);
+            aspect-ratio: 1.8 / 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .player-icon {
+            opacity: 0.85;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .player-icon:hover {
+            transform: scale(1.1);
+        }
+        .player-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 0.5rem 0.8rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .time-label {
+            font-family: monospace;
+            font-size: 0.6rem;
+            color: var(--gray-400);
+        }
+        .playback-bar {
+            height: 3px;
+            background: rgba(255,255,255,0.2);
+            flex-grow: 1;
+            position: relative;
+        }
+        .playback-bar .fill {
+            height: 100%;
+            background: #10b981;
+        }
+        .media-status {
+            font-size: 0.72rem;
+            color: var(--gray-500);
+            text-align: left;
+        }
+
+        /* ---------- INCUBATOR R&D ---------- */
+        .incubator {
+            padding: 10rem 2rem;
+            background: var(--off-white);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .incubator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+        .incubator-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 280px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .incubator-card:hover {
+            border-color: var(--black);
+            box-shadow: 0 16px 48px -12px rgba(0,0,0,0.05);
+        }
+        .inc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.8rem;
+        }
+        .inc-status-badge {
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #b45309;
+            background: #fef3c7;
+            padding: 0.2rem 0.6rem;
+            border-radius: 0;
+        }
+        .inc-code {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: var(--gray-400);
+        }
+        .incubator-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+        .inc-desc {
+            font-size: 0.88rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        .inc-telemetry {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: var(--gray-400);
+        }
+        .incubator-note {
+            margin-top: 3.5rem;
+            font-size: 0.82rem;
+            color: var(--gray-500);
+        }
+        .inc-link {
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 1px solid var(--black);
+            padding-bottom: 1px;
+            transition: opacity 0.2s;
+        }
+        .inc-link:hover { opacity: 0.6; }
+
+        /* ---------- 3-TIER PRICING UPGRADE ---------- */
+        .pricing-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+        .price-card.popular {
+            border-color: var(--black);
+            box-shadow: 0 20px 50px -15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        .popular-badge {
+            position: absolute;
+            top: 0;
+            right: 2.5rem;
+            transform: translateY(-50%);
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.58rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.9rem;
+        }
+        .price-features {
+            list-style: none;
+            margin: 2rem 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .price-features li {
+            font-size: 0.82rem;
+            color: var(--gray-600);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            text-align: left;
+        }
+        .price-features li::before {
+            content: "✓";
+            color: var(--black);
+            font-weight: bold;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .pricing-bespoke {
+            margin-top: 5rem;
+            border-top: 1px solid var(--gray-200);
+            padding-top: 4rem;
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 3rem;
+            text-align: left;
+        }
+        .pricing-bespoke h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.7rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+        .pricing-bespoke p {
+            font-size: 0.95rem;
+            color: var(--gray-500);
+            line-height: 1.75;
+        }
+
+        /* ---------- LAYMAN CONTACT FORM ---------- */
+        .contact-form-container {
+            max-width: 620px;
+            margin: 5rem auto 7rem;
+            text-align: left;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray-500);
+        }
+        .form-input-layman {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 0.8rem 1rem;
+            font-family: inherit;
+            font-size: 0.88rem;
+            color: var(--black);
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .form-input-layman:focus {
+            border-color: var(--black);
+            background: var(--off-white);
+        }
+        .form-select-layman {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 0.8rem 1rem;
+            font-family: inherit;
+            font-size: 0.88rem;
+            color: var(--black);
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .form-select-layman:focus {
+            border-color: var(--black);
+        }
+        .form-textarea-layman {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 0.8rem 1rem;
+            font-family: inherit;
+            font-size: 0.88rem;
+            color: var(--black);
+            outline: none;
+            height: 120px;
+            resize: none;
+            line-height: 1.5;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .form-textarea-layman:focus {
+            border-color: var(--black);
+            background: var(--off-white);
+        }
+        .form-submit-btn-layman {
+            width: 100%;
+            background: var(--black);
+            color: var(--white);
+            border: 1px solid var(--black);
+            padding: 1rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .form-submit-btn-layman:hover {
+            background: #222;
+        }
+        .form-submit-btn-layman:active {
+            transform: scale(0.99);
+        }
+
+        /* ---------- VISUAL PIPELINE LOADER ---------- */
+        .status-pipeline {
+            margin-top: 2rem;
+            border: 1px solid var(--gray-200);
+            padding: 1.2rem;
+            background: var(--off-white);
+            text-align: center;
+        }
+        .status-pipeline.hidden {
+            display: none;
+        }
+        .pipeline-loader {
+            height: 4px;
+            background: var(--gray-200);
+            width: 100%;
+            margin-bottom: 0.8rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .pipeline-progress-bar {
+            height: 100%;
+            width: 100%;
+        }
+        .pipeline-progress-bar .fill {
+            height: 100%;
+            width: 0%;
+            background: var(--black);
+            transition: width 0.6s ease-out;
+        }
+        .pipeline-status-text {
+            font-size: 0.78rem;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 768px) {
             nav { padding: 1rem 1.5rem; }
@@ -369,6 +1164,96 @@
             .pricing { padding: 6rem 1.5rem; }
             .contact { padding: 6rem 1.5rem; }
             .contact-details { gap: 2rem; }
+
+            .capabilities-list { gap: 4rem; }
+            .capability-item, .capability-item:nth-child(even) { grid-template-columns: 1fr; gap: 2.5rem; }
+            .capability-item:nth-child(even) .cap-info { grid-column: auto; grid-row: auto; }
+            .capability-item:nth-child(even) .cap-demo { grid-column: auto; grid-row: auto; }
+            .preview-card { height: auto; aspect-ratio: 1.4 / 1; }
+            .incubator-grid { grid-template-columns: 1fr; }
+            .pricing-grid-3 { grid-template-columns: 1fr; }
+            .pricing-bespoke { grid-template-columns: 1fr; gap: 1.5rem; }
+            .editor-input { width: 100%; }
+            .form-grid { grid-template-columns: 1fr; gap: 0rem; }
+        }
+        /* ---------- REVIEWS MARQUEE ---------- */
+        .reviews-container {
+            max-width: 100%;
+            overflow: hidden;
+            text-align: center;
+        }
+        .reviews-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            color: var(--gray-400);
+            display: inline-block;
+            text-transform: uppercase;
+            margin-bottom: 3.5rem;
+        }
+        .reviews-marquee {
+            display: flex;
+            gap: 2rem;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            padding: 1.5rem 0;
+            user-select: none;
+            mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+        }
+        .reviews-track {
+            display: flex;
+            gap: 2rem;
+            flex-shrink: 0;
+            animation: reviews-scroll 45s linear infinite;
+        }
+        .reviews-marquee:hover .reviews-track {
+            animation-play-state: paused;
+        }
+        .review-card-item {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 2.2rem;
+            width: min(380px, 85vw);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+        .review-card-item:hover {
+            border-color: var(--black);
+            box-shadow: 0 16px 40px -10px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+        }
+        .review-comment {
+            font-size: 0.88rem;
+            color: var(--gray-600);
+            line-height: 1.65;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        .review-author {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .author-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+        .author-title {
+            font-size: 0.72rem;
+            color: var(--gray-400);
+        }
+        @keyframes reviews-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 1rem)); }
         }
 
         /* ---------- REVEAL ---------- */
@@ -379,6 +1264,7 @@
         }
         .reveal.visible { opacity: 1; transform: translateY(0); }
     </style>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@videojs/html/cdn/video-minimal.js"></script>
 </head>
 <body>
 
@@ -392,7 +1278,9 @@
         </a>
         <div class="nav-right">
             <a href="#work">What we do</a>
-            <a href="#solutions">Solutions</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#incubator">Incubator</a>
+            <a href="#pricing">Pricing</a>
             <a href="#contact">Contact</a>
             <a href="#contact" class="nav-cta">Let's talk</a>
         </div>
@@ -403,11 +1291,28 @@
             <h1 class="reveal">Software that <em>actually</em> ships.</h1>
             <p class="hero-sub reveal">We build fast, reliable systems for businesses that don't have time for bloat. Idea to production — quickly.</p>
             <div class="hero-buttons reveal">
-                <a href="#solutions" class="btn-dark">
-                    See our work
+                <a href="#capabilities" class="btn-dark">
+                    See what we build
                     <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                 </a>
                 <a href="#contact" class="btn-light">Get in touch</a>
+            </div>
+            <div class="hero-meta reveal">
+                <div class="meta-item">
+                    <span class="meta-icon">🛠️</span>
+                    <span class="meta-label">Modern Tech Stack</span>
+                    <span class="meta-val">AWS, React, Python</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">⚡</span>
+                    <span class="meta-label">High Velocity</span>
+                    <span class="meta-val">2 - 4 Weeks Sprint</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">🔄</span>
+                    <span class="meta-label">Seamless Delivery</span>
+                    <span class="meta-val">Continuous Integration</span>
+                </div>
             </div>
         </section>
 
@@ -448,6 +1353,91 @@
             </div>
         </div>
 
+        <section class="trusted-by reveal">
+            <div class="reviews-container">
+                <span class="reviews-label">Trusted by outstanding founders and product teams</span>
+                
+                <div class="reviews-marquee">
+                    <div class="reviews-track">
+                        <div class="review-card-item">
+                            <p class="review-comment">"TheOnePixl delivered our SaaS MVP in record time. The system loads instantly and scales effortlessly. Unbelievable execution."</p>
+                            <div class="review-author">
+                                <span class="author-name">Sarah Jenkins</span>
+                                <span class="author-title">Founder, Elevate AI</span>
+                            </div>
+                        </div>
+                        <div class="review-card-item">
+                            <p class="review-comment">"Our website load speeds went from seconds to sub-millisecond. It's transformed our search rankings and client conversion rates."</p>
+                            <div class="review-author">
+                                <span class="author-name">Vikram Malhotra</span>
+                                <span class="author-title">CEO, Malhotra Real Estate</span>
+                            </div>
+                        </div>
+                        <div class="review-card-item">
+                            <p class="review-comment">"We automated our entire lead qualification pipeline with their smart forms. We're saving 15+ hours of manual work every week."</p>
+                            <div class="review-author">
+                                <span class="author-name">David Vance</span>
+                                <span class="author-title">Operations Director, FinFlow</span>
+                            </div>
+                        </div>
+                        <div class="review-card-item">
+                            <p class="review-comment">"Their custom AI chat assistant qualifies and books 40% of our demos. It is like having an expert SDR running 24/7."</p>
+                            <div class="review-author">
+                                <span class="author-name">Chloe Mercer</span>
+                                <span class="author-title">VP Growth, PeakSaaS</span>
+                            </div>
+                        </div>
+                        <div class="review-card-item">
+                            <p class="review-comment">"Stutter-free media pipelines changed the way we showcase our product. The video experience is fast and absolutely beautiful."</p>
+                            <div class="review-author">
+                                <span class="author-name">Arjun Sharma</span>
+                                <span class="author-title">Founder, streamly.io</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Track Clone for Seamless Loop -->
+                    <div class="reviews-track" aria-hidden="true">
+                        <div class="review-card-item">
+                            <p class="review-comment">"TheOnePixl delivered our SaaS MVP in record time. The system loads instantly and scales effortlessly. Unbelievable execution."</p>
+                            <div class="review-author">
+                                <span class="author-name">Sarah Jenkins</span>
+                                <span class="author-title">Founder, Elevate AI</span>
+                            </div>
+                        </div>
+                        <div class="review-card-item">
+                            <p class="review-comment">"Our website load speeds went from seconds to sub-millisecond. It's transformed our search rankings and client conversion rates."</p>
+                            <div class="review-author">
+                                <span class="author-name">Vikram Malhotra</span>
+                                <span class="author-title">CEO, Malhotra Real Estate</span>
+                            </div>
+                        </div>
+                        <div class="review-card-item">
+                            <p class="review-comment">"We automated our entire lead qualification pipeline with their smart forms. We're saving 15+ hours of manual work every week."</p>
+                            <div class="review-author">
+                                <span class="author-name">David Vance</span>
+                                <span class="author-title">Operations Director, FinFlow</span>
+                            </div>
+                        </div>
+                        <div class="review-card-item">
+                            <p class="review-comment">"Their custom AI chat assistant qualifies and books 40% of our demos. It is like having an expert SDR running 24/7."</p>
+                            <div class="review-author">
+                                <span class="author-name">Chloe Mercer</span>
+                                <span class="author-title">VP Growth, PeakSaaS</span>
+                            </div>
+                        </div>
+                        <div class="review-card-item">
+                            <p class="review-comment">"Stutter-free media pipelines changed the way we showcase our product. The video experience is fast and absolutely beautiful."</p>
+                            <div class="review-author">
+                                <span class="author-name">Arjun Sharma</span>
+                                <span class="author-title">Founder, streamly.io</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="work" class="manifesto">
             <p class="reveal">
                 We're a small, <em>opinionated</em> software studio. <span class="muted">We don't do committees, decks, or six-month timelines.</span> We write code, ship fast, and build things that <em>actually work.</em>
@@ -474,41 +1464,325 @@
             </div>
         </section>
 
-        <section id="solutions" class="pricing">
+        <section id="capabilities" class="capabilities">
+            <div class="section-inner">
+                <span class="section-label reveal">Capabilities</span>
+                <h2 class="section-heading reveal">What We Build</h2>
+                <p class="section-sub reveal">We design, develop, and deploy premium, production-grade applications for growing startups and fast-moving companies. No deadlocks. Just high-performance execution.</p>
+
+                <div class="capabilities-list">
+                    <!-- Capability 1: Custom Websites -->
+                    <div class="capability-item reveal">
+                        <div class="cap-info">
+                            <span class="cap-code">SERVICE_WEBSITES</span>
+                            <h3>Custom Websites</h3>
+                            <p class="cap-desc">High-performance digital properties designed to attract customers and drive conversion.</p>
+                            <p class="cap-body">We craft fully customized, sub-millisecond loading websites tailored around your brand. No heavy templates or slow code blocks — just premium design optimized to rank on Google and convert visitors into clients from day one.</p>
+                            <div class="cap-footer">
+                                <span class="cap-velocity">Typical Delivery: 7 - 14 Days</span>
+                            </div>
+                        </div>
+                        <div class="cap-demo">
+                            <div class="preview-card web-preview">
+                                <div class="preview-header">
+                                    <span class="preview-dot red"></span>
+                                    <span class="preview-dot yellow"></span>
+                                    <span class="preview-dot green"></span>
+                                    <div class="preview-address-bar">https://yourstartup.com</div>
+                                </div>
+                                <div class="preview-body">
+                                    <div class="gauge-container">
+                                        <div class="speed-gauge">
+                                            <span class="gauge-number">99</span>
+                                            <span class="gauge-label">Speed Score</span>
+                                        </div>
+                                    </div>
+                                    <ul class="preview-checklist">
+                                        <li class="check-item passed"><span>✓ Google Core Web Vitals: <strong>Excellent</strong></span></li>
+                                        <li class="check-item passed"><span>✓ Fully Optimized Mobile layouts: <strong>Yes</strong></span></li>
+                                        <li class="check-item passed"><span>✓ Semantic SEO Search Index: <strong>Ready</strong></span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capability 2: Custom Software & SaaS -->
+                    <div class="capability-item reveal">
+                        <div class="cap-info">
+                            <span class="cap-code">SERVICE_SAAS</span>
+                            <h3>Custom Software & SaaS</h3>
+                            <p class="cap-desc">Scalable custom applications built from scratch, from MVPs to enterprise platforms.</p>
+                            <p class="cap-body">We handle all the technical heavy lifting—from secure user databases to payment processing and server scaling. Engineered on reliable modular pillars so your platform remains fast and rock-solid as you scale.</p>
+                            <div class="cap-footer">
+                                <span class="cap-velocity">Typical Delivery: 14 - 28 Days</span>
+                            </div>
+                        </div>
+                        <div class="cap-demo">
+                            <div class="preview-card saas-preview">
+                                <div class="preview-header">
+                                    <span class="preview-dot red"></span>
+                                    <span class="preview-dot yellow"></span>
+                                    <span class="preview-dot green"></span>
+                                    <div class="preview-address-bar">Admin Dashboard — Telemetry</div>
+                                </div>
+                                <div class="preview-body">
+                                    <div class="saas-header-metrics">
+                                        <div class="metric-block">
+                                            <span class="metric-title">Platform Status</span>
+                                            <span class="metric-value status-ok">● 100% Operational</span>
+                                        </div>
+                                        <div class="metric-block">
+                                            <span class="metric-title">Active SaaS Users</span>
+                                            <span class="metric-value">12,480 <em class="positive">(+12%)</em></span>
+                                        </div>
+                                    </div>
+                                    <div class="telemetry-sparkline">
+                                        <span class="sparkline-title">Uptime & Traffic Load Telemetry</span>
+                                        <svg viewBox="0 0 300 50" class="sparkline-svg">
+                                            <path d="M0,45 Q30,10 60,35 T120,15 T180,40 T240,20 L300,5" fill="none" stroke="#10b981" stroke-width="2.5"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="api-speed-badge">
+                                        <span>Average Global Latency: <strong>14ms</strong> (Sub-millisecond response)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capability 3: AI Chat Assistants -->
+                    <div class="capability-item reveal">
+                        <div class="cap-info">
+                            <span class="cap-code">SERVICE_CHAT</span>
+                            <h3>AI Chat Assistants</h3>
+                            <p class="cap-desc">Answer questions, qualify leads, and support clients around the clock.</p>
+                            <p class="cap-body">Equip your brand with custom-aligned AI agents that understand your specific business parameters. We transform static FAQs into interactive conversations that schedule meetings and capture leads automatically.</p>
+                            <div class="cap-footer">
+                                <span class="cap-velocity">Typical Delivery: 10 - 20 Days</span>
+                            </div>
+                        </div>
+                        <div class="cap-demo">
+                            <div class="preview-card ai-preview">
+                                <div class="preview-header">
+                                    <span class="preview-dot red"></span>
+                                    <span class="preview-dot yellow"></span>
+                                    <span class="preview-dot green"></span>
+                                    <div class="preview-address-bar">Live AI Assistant Sandbox</div>
+                                </div>
+                                <div class="preview-body chat-sandbox">
+                                    <div class="chat-bubble user">
+                                        <span class="chat-sender">Visitor (2:01 PM)</span>
+                                        <p>Can you help me schedule a project discovery call for tomorrow?</p>
+                                    </div>
+                                    <div class="chat-bubble assistant">
+                                        <span class="chat-sender">AI Assistant (2:01 PM)</span>
+                                        <p>Absolutely! I'd love to set that up for you. Would 2:00 PM work?</p>
+                                    </div>
+                                    <div class="chat-bubble user">
+                                        <span class="chat-sender">Visitor (2:01 PM)</span>
+                                        <p>Yes, that works perfectly.</p>
+                                    </div>
+                                    <div class="chat-bubble assistant">
+                                        <span class="chat-sender">AI Assistant (2:02 PM)</span>
+                                        <p>All set! I've booked your discovery call for tomorrow at 2:00 PM and sent the calendar invite to your inbox. 🚀</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capability 4: Smart Forms & Automation -->
+                    <div class="capability-item reveal">
+                        <div class="cap-info">
+                            <span class="cap-code">SERVICE_AUTOMATION</span>
+                            <h3>Smart Forms & Automation</h3>
+                            <p class="cap-desc">Connect systems, streamline lead funnels, and eliminate manual data entry.</p>
+                            <p class="cap-body">Free up your team's schedule. We connect your website forms instantly to tools like Stripe, HubSpot, Slack, or Notion, allowing your customer interactions to trigger background actions seamlessly.</p>
+                            <div class="cap-footer">
+                                <span class="cap-velocity">Typical Delivery: 5 - 12 Days</span>
+                            </div>
+                        </div>
+                        <div class="cap-demo">
+                            <div class="preview-card automation-preview">
+                                <div class="preview-header">
+                                    <span class="preview-dot red"></span>
+                                    <span class="preview-dot yellow"></span>
+                                    <span class="preview-dot green"></span>
+                                    <div class="preview-address-bar">Workflow Pipeline Designer</div>
+                                </div>
+                                <div class="preview-body">
+                                    <div class="flow-chart">
+                                        <div class="flow-step">
+                                            <span class="step-num">1</span>
+                                            <span class="step-label">Lead Input Form</span>
+                                        </div>
+                                        <div class="flow-arrow">➔</div>
+                                        <div class="flow-step">
+                                            <span class="step-num">2</span>
+                                            <span class="step-label">Stripe Payments</span>
+                                        </div>
+                                        <div class="flow-arrow">➔</div>
+                                        <div class="flow-step">
+                                            <span class="step-num">3</span>
+                                            <span class="step-label">Slack Notification</span>
+                                        </div>
+                                    </div>
+                                    <div class="automation-status">
+                                        <span>Status: <strong class="text-success">Active Pipeline</strong> (Instant multi-platform synchronization)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capability 5: Media & Video Integration -->
+                    <div class="capability-item reveal">
+                        <div class="cap-info">
+                            <span class="cap-code">SERVICE_MEDIA</span>
+                            <h3>Media & Video Integration</h3>
+                            <p class="cap-desc">Engaging product video streams, custom media players, and high-impact demos.</p>
+                            <p class="cap-body">No slow YouTube embed code or clunky video elements. We build light, stutter-free, adaptive streaming layouts designed to make product demos load and play beautifully on any screen resolution.</p>
+                            <div class="cap-footer">
+                                <span class="cap-velocity">Typical Delivery: 7 - 15 Days</span>
+                            </div>
+                        </div>
+                        <div class="cap-demo">
+                            <div class="preview-card media-preview">
+                                <div class="preview-header">
+                                    <span class="preview-dot red"></span>
+                                    <span class="preview-dot yellow"></span>
+                                    <span class="preview-dot green"></span>
+                                    <div class="preview-address-bar">Adaptive Video Engine Player</div>
+                                </div>
+                                <div class="preview-body">
+                                    <video-player>
+                                      <video-minimal-skin>
+                                        <video src="https://stream.mux.com/BV3YZtogl89mg9VcNBhhnHm02Y34zI1nlMuMQfAbl3dM/highest.mp4" playsinline autoplay muted loop preload="auto"></video>
+                                      </video-minimal-skin>
+                                    </video-player>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="incubator" class="incubator">
+            <div class="section-inner">
+                <span class="section-label reveal">Early Access</span>
+                <h2 class="section-heading reveal">Upcoming Services</h2>
+                <p class="section-sub reveal">We are constantly developing and testing next-generation business tools. These modules are currently undergoing private testing and are available for select early adopters.</p>
+
+                <div class="incubator-grid">
+                    <div class="incubator-card reveal">
+                        <div class="inc-header">
+                            <span class="inc-status-badge">Private Beta</span>
+                            <span class="inc-code">MODULE_VOICE</span>
+                        </div>
+                        <h3>AI Voice & Scheduling Agents</h3>
+                        <p class="inc-desc">Automate customer phone calls, book appointments, and handle common user inquiries around the clock with responsive, human-like voice conversations.</p>
+                        <div class="inc-footer">
+                            <span class="inc-telemetry">Conversation Latency: ~120ms</span>
+                        </div>
+                    </div>
+
+                    <div class="incubator-card reveal">
+                        <div class="inc-header">
+                            <span class="inc-status-badge">Private Beta</span>
+                            <span class="inc-code">MODULE_ANALYTICS</span>
+                        </div>
+                        <h3>Advanced Visitor Telemetry</h3>
+                        <p class="inc-desc">Understand exactly how customers interact with your site. Visual heatmaps, continuous sales funnel tracking, and automated touchpoint insights designed to maximize your profit.</p>
+                        <div class="inc-footer">
+                            <span class="inc-telemetry">Real-time processing: Live</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="incubator-note reveal">
+                    <p>* Available for select clients and early partners. <a href="#contact" class="inc-link">Request early access →</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="pricing">
             <div class="pricing-inner">
-                <div class="pricing-label reveal">Pricing</div>
-                <h2 class="pricing-heading reveal">Straightforward work, <em>straightforward</em> pricing.</h2>
+                <div class="pricing-label reveal">Investment</div>
+                <h2 class="pricing-heading reveal">Rigorous Investment Model</h2>
 
-                <div class="pricing-grid">
+                <div class="pricing-grid-3">
                     <div class="price-card reveal">
                         <div>
-                            <span class="price-tag">Sprint</span>
-                            <h3 class="price-name">Rapid Development</h3>
-                            <p class="price-desc">From concept to production-ready software in 4 weeks. Ideal for startups validating ideas or teams shipping critical features.</p>
+                            <span class="price-tag">Launch Tier</span>
+                            <h3 class="price-name">Launch</h3>
+                            <p class="price-desc">Perfect for businesses establishing an authoritative, ultra-fast online presence.</p>
+                            <ul class="price-features">
+                                <li><span>High-Performance Custom Website</span></li>
+                                <li><span>Smart Contact Forms & Lead Generation</span></li>
+                                <li><span>Traffic Tracking & Visitor Analytics</span></li>
+                                <li><span>Google Search Optimization (SEO)</span></li>
+                            </ul>
                         </div>
                         <div class="price-bottom">
                             <div>
-                                <div class="price-amount">₹49,999</div>
-                                <span class="price-unit">base / project</span>
+                                <div class="price-amount">$999</div>
+                                <span class="price-unit">flat-rate project</span>
                             </div>
-                            <a href="#contact" class="price-link">Inquire →</a>
+                            <a href="#contact" class="price-link">Start project →</a>
+                        </div>
+                    </div>
+
+                    <div class="price-card reveal popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <div>
+                            <span class="price-tag">Scale Tier</span>
+                            <h3 class="price-name">Scale</h3>
+                            <p class="price-desc">Built for growing businesses looking to engage audiences and automate background tasks.</p>
+                            <ul class="price-features">
+                                <li><span>Advanced Multi-Page Web Platform</span></li>
+                                <li><span>AI Customer Assistant Chatbot</span></li>
+                                <li><span>Automated Platform Sync (No Manual Work)</span></li>
+                                <li><span>Seamless Lead Transfer to Your CRM / Tools</span></li>
+                                <li><span>Interactive Questionnaire Form Funnels</span></li>
+                            </ul>
+                        </div>
+                        <div class="price-bottom">
+                            <div>
+                                <div class="price-amount">$2,999</div>
+                                <span class="price-unit">flat-rate package</span>
+                            </div>
+                            <a href="#contact" class="price-link">Start project →</a>
                         </div>
                     </div>
 
                     <div class="price-card reveal">
                         <div>
-                            <span class="price-tag">Enterprise</span>
-                            <h3 class="price-name">Infrastructure Audit</h3>
-                            <p class="price-desc">Backend architecture review, API optimization, and cloud hardening for companies that need to scale without breaking.</p>
+                            <span class="price-tag">Accelerate Tier</span>
+                            <h3 class="price-name">Accelerate</h3>
+                            <p class="price-desc">For startups and companies building core software, custom databases, or SaaS platforms.</p>
+                            <ul class="price-features">
+                                <li><span>Full Custom Software & SaaS MVP Development</span></li>
+                                <li><span>Smart AI-Powered Application Features</span></li>
+                                <li><span>Rock-Solid User Databases & Admin Interfaces</span></li>
+                                <li><span>Secure Cloud Server Infrastructure Setup</span></li>
+                                <li><span>Ongoing Technical Support & Maintenance SLA</span></li>
+                            </ul>
                         </div>
                         <div class="price-bottom">
                             <div>
-                                <div class="price-amount">₹1,25,000</div>
-                                <span class="price-unit">base / audit</span>
+                                <div class="price-amount">$7,999+</div>
+                                <span class="price-unit">custom scope</span>
                             </div>
-                            <a href="#contact" class="price-link">Inquire →</a>
+                            <a href="#contact" class="price-link">Start project →</a>
                         </div>
                     </div>
+                </div>
+
+                <div class="pricing-bespoke reveal">
+                    <h3>Need a custom solution?</h3>
+                    <p>Every capability can be delivered independently, scaled as you grow, or integrated into a bespoke platform designed specifically around your startup's goals.</p>
                 </div>
             </div>
         </section>
@@ -517,6 +1791,55 @@
             <h2 class="reveal">Let's build<br><em>something real.</em></h2>
             <a href="mailto:contact@theonepixl.com" class="contact-email reveal">contact@theonepixl.com</a>
             <a href="tel:+919540141141" class="contact-phone reveal">+91 9540141141</a>
+
+            <div class="contact-form-container reveal">
+                <form id="premium-contact-form" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleFormSubmit(event)">
+                    <!-- Web3Forms Config -->
+                    <input type="hidden" name="access_key" value="8af6bbb0-39fd-4a69-9e59-c28d0c53d38c">
+                    <input type="hidden" name="subject" value="New Project Brief Submission">
+                    <input type="hidden" name="from_name" value="TheOnePixl Website">
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="form-name" class="form-label">Your Name</label>
+                            <input type="text" id="form-name" name="name" required placeholder="e.g. Alexander Wright" class="form-input-layman">
+                        </div>
+                        <div class="form-group">
+                            <label for="form-email" class="form-label">Email Address</label>
+                            <input type="email" id="form-email" name="email" required placeholder="e.g. alex@yourcompany.com" class="form-input-layman">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-tier" class="form-label">Select Your Investment Tier</label>
+                        <select id="form-tier" name="tier" class="form-select-layman">
+                            <option value="Launch - $999">Launch Tier ($999 flat-rate)</option>
+                            <option value="Scale - $2,999" selected>Scale Tier ($2,999 package) — Most Popular</option>
+                            <option value="Accelerate - $7,999+">Accelerate Tier ($7,999+ custom)</option>
+                            <option value="Bespoke Custom">Bespoke / Custom Scope</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-details" class="form-label">How Can We Help You?</label>
+                        <textarea id="form-details" name="message" required placeholder="Tell us about your project, goals, and any timeline constraints..." class="form-textarea-layman"></textarea>
+                    </div>
+
+                    <button type="submit" id="form-submit-btn" class="form-submit-btn-layman">
+                        <span>Send Project Brief</span>
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                        </svg>
+                    </button>
+
+                    <div id="form-status-pipeline" class="status-pipeline hidden">
+                        <div class="pipeline-loader">
+                            <div class="pipeline-progress-bar"><div id="pipeline-fill" class="fill"></div></div>
+                        </div>
+                        <div id="pipeline-status-text" class="pipeline-status-text">
+                            Securing connection...
+                        </div>
+                    </div>
+                </form>
+            </div>
 
             <div class="contact-details reveal">
                 <div>
@@ -551,6 +1874,63 @@
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.12 });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const btn = document.getElementById('form-submit-btn');
+            const pipelineEl = document.getElementById('form-status-pipeline');
+            const fillEl = document.getElementById('pipeline-fill');
+            const textEl = document.getElementById('pipeline-status-text');
+
+            // Disable submit button & reveal the progress pipeline
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+            btn.style.cursor = 'not-allowed';
+            pipelineEl.classList.remove('hidden');
+
+            const steps = [
+                { percent: '30%', text: '🔒 Securing connection to project queues...' },
+                { percent: '65%', text: '⚙️ Packing project brief parameters...' },
+                { percent: '100%', text: '🚀 Dispatching inquiry to engineering desk... Success!' }
+            ];
+
+            // Submit form data asynchronously to Web3Forms
+            const formData = new FormData(form);
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Web3Forms Response:', data);
+            })
+            .catch(error => {
+                console.error('Web3Forms Error:', error);
+            });
+
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    fillEl.style.width = step.percent;
+                    textEl.innerHTML = step.text;
+
+                    if (index === steps.length - 1) {
+                        setTimeout(() => {
+                            btn.innerHTML = '<span>Brief Deployed!</span>';
+                            btn.style.background = '#10B981';
+                            btn.style.borderColor = '#10B981';
+                            btn.style.color = '#fff';
+                            btn.style.opacity = '1';
+                            
+                            textEl.innerHTML = '<strong>✨ Thank you!</strong> Project parameters successfully registered. We will contact you via email in under 2 hours.';
+                            
+                            // Reset form inputs
+                            form.reset();
+                        }, 800);
+                    }
+                }, index * 850 + 300);
+            });
+        }
     </script>
 </body>
 </html>
